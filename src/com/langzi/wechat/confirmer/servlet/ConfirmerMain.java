@@ -1,11 +1,20 @@
-package com.langzi.wechat.confirmer;
+package com.langzi.wechat.confirmer.servlet;
 
 import java.io.IOException;
+import java.io.Writer;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONObject;
+
+import com.langzi.wechat.confirmer.log.Logger;
+
+import org.json.simple.*;
+
+
 
 /**
  * Servlet implementation class ConfirmerMain
@@ -47,14 +56,22 @@ public class ConfirmerMain extends HttpServlet {
 				String code = getPrameterFromRequest(request, PARAM_NAME_CODE);
 				if(code == null || code.isEmpty())
 					throw new RuntimeException("Error: code not set.");
-				
+				JSONObject jsonObj = new JSONObject();
+				jsonObj.put("name", "foo");
+				jsonObj.put("num", new Integer(100));
+				jsonObj.put("balance", new Double(1000.21));
+				jsonObj.put("is_vip", new Boolean(true));
+
+				response.getWriter().write(jsonObj.toJSONString());
+
 				break;
 			default:
 				Logger.debug("order is not valid: " + order);
 				break;
 		}
-		System.out.println("servlet is called.");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		response.setStatus(arg0);
+//		System.out.println("servlet is called.");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

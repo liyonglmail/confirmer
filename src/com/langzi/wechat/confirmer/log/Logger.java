@@ -1,4 +1,4 @@
-package com.langzi.wechat.confirmer;
+package com.langzi.wechat.confirmer.log;
 
 public class Logger {
 

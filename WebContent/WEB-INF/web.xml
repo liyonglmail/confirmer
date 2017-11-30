@@ -7,7 +7,7 @@
         
 	<servlet>
     	<servlet-name>ConfirmerMain</servlet-name>
-    	<servlet-class>com.langzi.wechat.confirmer.ConfirmerMain</servlet-class>
+    	<servlet-class>com.langzi.wechat.confirmer.servlet.ConfirmerMain</servlet-class>
 	</servlet>
 	<servlet-mapping>
     	<servlet-name>ConfirmerMain</servlet-name>
@@ -15,28 +15,7 @@
 	</servlet-mapping>
 
 
-    <security-constraint id="SecurityConstraint_1042066042655">
-        <web-resource-collection id="WebResourceCollection_1042066042655">
-            <web-resource-name>Resource Manager Access</web-resource-name>
-            <url-pattern>/</url-pattern>
-            <url-pattern>/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-            <http-method>PUT</http-method>
-            <http-method>HEAD</http-method>
-        </web-resource-collection>
-        <auth-constraint id="AuthConstraint_1042066042655">
-            <description>role for Resource Manager Access:+:</description>
-            <role-name>AccessResourceManager</role-name>
-        </auth-constraint>
-        <user-data-constraint id="UserDataConstraint_1042066042655">
-            <transport-guarantee>NONE</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
-    <security-role id="SecurityRole_1042066042655">
-        <description>General Resource Manager Users</description>
-        <role-name>AccessResourceManager</role-name>
-    </security-role>
+
             <welcome-file-list>
                 <welcome-file>index.html</welcome-file>
         </welcome-file-list>
